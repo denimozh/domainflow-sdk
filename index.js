@@ -3,7 +3,7 @@
  * Official client library for the DomainFlow API
  * 
  * @example
- * const DomainFlow = require('@domainflow/sdk');
+ * const DomainFlow = require('domainflow-sdk');
  * const client = new DomainFlow('your-api-key');
  * 
  * const domain = await client.domains.add({
@@ -88,11 +88,13 @@ class DomainsResource {
    * @returns {Promise<Object>} Domain object
    */
   async add({ domain, upstreamUrl, tenantId }) {
-    return this.client._request('POST', '/api/domain/add', {
+    const response = await this.client._request('POST', '/api/domain/add', {
       domain,
       upstream_url: upstreamUrl,
       tenant_id: tenantId
     })
+    // Unwrap if response has { domain: {...} }
+    return response.domain || response
   }
 
   /**
@@ -101,7 +103,8 @@ class DomainsResource {
    * @returns {Promise<Object>} Domain object
    */
   async get(domainId) {
-    return this.client._request('GET', `/api/domain/${domainId}`)
+    const response = await this.client._request('GET', `/api/domain/${domainId}`)
+    return response.domain || response
   }
 
   /**
@@ -144,7 +147,7 @@ class DomainsResource {
    * @returns {Promise<Object>} DNS instructions
    */
   async getDnsInstructions(domainId) {
-    return this.client._request('GET', `/api/domain/${domainId}/dns-instructions`)
+    return this.client._request('GET', `/api/domain/${domainId}/instructions`)
   }
 }
 
@@ -164,10 +167,12 @@ class TenantsResource {
    * @returns {Promise<Object>} Tenant object
    */
   async create({ name, upstreamUrl }) {
-    return this.client._request('POST', '/api/tenant/create', {
+    const response = await this.client._request('POST', '/api/tenant/create', {
       name,
       upstream_url: upstreamUrl
     })
+    // Unwrap if response has { tenant: {...} }
+    return response.tenant || response
   }
 
   /**
@@ -176,7 +181,8 @@ class TenantsResource {
    * @returns {Promise<Object>} Tenant object
    */
   async get(tenantId) {
-    return this.client._request('GET', `/api/tenant/${tenantId}`)
+    const response = await this.client._request('GET', `/api/tenant/${tenantId}`)
+    return response.tenant || response
   }
 
   /**
@@ -194,7 +200,8 @@ class TenantsResource {
    * @returns {Promise<Object>} Updated tenant
    */
   async update(tenantId, updates) {
-    return this.client._request('PATCH', `/api/tenant/${tenantId}`, updates)
+    const response = await this.client._request('PATCH', `/api/tenant/${tenantId}`, updates)
+    return response.tenant || response
   }
 
   /**

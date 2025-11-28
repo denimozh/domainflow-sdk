@@ -1,6 +1,6 @@
 {
-  "name": "@domainflow/sdk",
-  "version": "1.0.0",
+  "name": "domainflow-sdk",
+  "version": "1.0.2",
   "description": "Official Node.js SDK for DomainFlow - Add custom domains to your SaaS in minutes",
   "main": "index.js",
   "types": "index.d.ts",
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/domainflow-sdk.git"
+    "url": "https://github.com/denimozh/domainflow-sdk.git"
   },
   "engines": {
     "node": ">=14.0.0"
