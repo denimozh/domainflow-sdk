@@ -1,1 +1,3 @@
-git add .
+test.js
+.git/
+.gitignore

@@ -1,0 +1,30 @@
+{
+  "name": "@domainflow/sdk",
+  "version": "1.0.0",
+  "description": "Official Node.js SDK for DomainFlow - Add custom domains to your SaaS in minutes",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "custom-domains",
+    "ssl",
+    "saas",
+    "dns",
+    "domains",
+    "certificates",
+    "multi-tenant"
+  ],
+  "author": "DomainFlow",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/domainflow-sdk.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
